@@ -1,0 +1,26 @@
+{% extends 'rentcarsapp/header.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+    <h1>Каталог авто</h1>
+    {% for el in carmodels %}
+        <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ el.title }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">${{el.DayPrice}}<small class="text-muted fw-light">/сутки</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Мощность: {{ el.Power }} л.с</li>
+              <li>Объем двигателя: {{ el.Volume }} л</li>
+              <li>Год выпуска: {{ el.Year }} г</li>
+            </ul>
+            <a href="{% url 'rent' %}" class="btn btn-primary my-2">Арендовать</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'rentcarsapp/header.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Аренда авто</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.mail }}<br>
+        {{ form.Data }}<br>
+        {{ form.CarName }}<br>
+        <button type="submit" class="btn btn-primary my-2">Арендовать</button>
+        <span>{{ message }}</span>
+    </form>
+{% endblock %}
